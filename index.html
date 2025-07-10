@@ -4,19 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List - Ferdi Yansah</title>
+
+    <!-- CSS External -->
     <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
     <!-- Hero Website -->
-    <header>
-        <h1>Todo List</h1>
-    </header>
-
     <main>
+        <header>
+            <h1>Todo List</h1>
+        </header>
+
+        <!-- Todo Input -->
+         <section class="todo-input">
+            <form>
+                <input type="text" id="task-input" placeholder="Add a todo...">
+                <input type="date" id="due-date-input" placeholder="Due date">
+                <button onclick="addTask();">+</button>
+            </form>
+         </section>
+        
+        <!-- Todo Actions -->
+        <section class="todo-actions">
+            <select id="filter-tasks" onchange="filterTasks();">
+                <option value="all">Show All</option>
+                <option value="pending">Show Pending</option>
+                <option value="completed">Show Completed</option>
+            </select>
+            <button onclick="deleteAllTasks()">Delete All</button>
+        </section>
+        
+        <!-- Todo List -->
+        <section class="todo-list">
+            <table id="task-table">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="task-list">
+                    <!-- Task items will be dynamically added here -->
+                </tbody>
+            </table>
+        </section>
     </main>
 
     <footer>
         <span>&copy; 2025 Ferdi Yansah. All rights reserved.</span>
     </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

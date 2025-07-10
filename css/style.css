@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+main {
+    margin-top: 40px;         
+    margin-bottom: 40px;     
+    justify-content: center;
+    width: 700px;
+    min-height: 300px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+header {
+    margin-bottom: 20px;
+}
+
+/* Todo Input */
+.todo-input, .todo-actions, .todo-list {
+    margin-bottom: 20px;
+}
+.todo-input input[type="text"],
+.todo-input input[type="date"],
+.todo-input button {
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Todo Actions */
+.todo-actions select {
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.todo-actions button {
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Todo List */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Kolom */
+thead {
+    background-color: #f7f7f7;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Baris terakhir tanpa border bawah */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Hover efek */
+tbody tr:hover {
+    background-color: #f0f0f0;
+}
+
+/* Status Badge */
+.status-done {
+    color: green;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: red;
+    font-weight: bold;
+}
+
+/* Tombol Hapus / Aksi */
+.btn-edit {
+    padding: 6px 12px;
+    background-color: #ffff00;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-toggle {
+    padding: 6px 12px;
+    background-color: #51ff00;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-delete {
+    padding: 6px 12px;
+    background-color: #ff4d4d;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+ .btn-delete:hover {
+    background-color: #e60000;
+}
+
+footer {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    color: #555;
+}
