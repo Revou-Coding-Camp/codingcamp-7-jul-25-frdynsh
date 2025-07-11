@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Todo List - Ferdi Yansah</title>
 
-    <!-- CSS External -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS Eksternal -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    
+    <!-- ICON CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
-
 <body>
-    <!-- Hero Website -->
+    <!-- Notifikasi Global -->
+    <div id="notification" class="notification"></div>
+
     <main>
+        <!-- Header -->
         <header>
             <h1>Todo List</h1>
         </header>
 
-        <!-- Todo Input -->
-         <section class="todo-input">
-            <form>
-                <input type="text" id="task-input" placeholder="Add a todo...">
-                <input type="date" id="due-date-input" placeholder="Due date">
-                <button onclick="addTask();">+</button>
+        <!-- Todo Input Form -->
+        <section class="todo-input">
+            <form onsubmit="addTask()">
+                <input type="text" id="task-input" placeholder="Add a todo..." />
+                <input type="date" id="due-date-input" />
+                <button type="submit" id="submit-button"><i class="fa-solid fa-plus"></i></button>
             </form>
-         </section>
-        
+        </section>
+
         <!-- Todo Actions -->
         <section class="todo-actions">
-            <select id="filter-tasks" onchange="filterTasks();">
-                <option value="all">Show All</option>
-                <option value="pending">Show Pending</option>
-                <option value="completed">Show Completed</option>
-            </select>
+            <div class="dropdown">
+                <button class="dropdown-btn">Filter</i></button>
+                <ul class="dropdown-menu">
+                    <li onclick="filterTasks('all')">Show All</li>
+                    <li onclick="filterTasks('pending')">Show Pending</li>
+                    <li onclick="filterTasks('completed')">Show Completed</li>
+                </ul>
+            </div>
             <button onclick="deleteAllTasks()">Delete All</button>
         </section>
-        
-        <!-- Todo List -->
+
+        <!-- Todo Table -->
         <section class="todo-list">
             <table id="task-table">
                 <thead>
@@ -48,7 +57,7 @@
                     </tr>
                 </thead>
                 <tbody id="task-list">
-                    <!-- Task items will be dynamically added here -->
+                <!-- Task rows will be inserted here dynamically -->
                 </tbody>
             </table>
         </section>

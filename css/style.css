@@ -1,12 +1,14 @@
+/* Reset */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #09090b;
+    color: #dea355;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,79 +18,145 @@ body {
 }
 
 main {
-    margin-top: 40px;         
-    margin-bottom: 40px;     
-    justify-content: center;
+    margin: 40px 0;
     width: 700px;
     min-height: 300px;
     padding: 20px;
-    background-color: #fff;
+    background-color: #2e2e2e;
+    border: 0.1px solid #cccccc55;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 7px 10px rgba(21, 6, 70, 0.5);
 }
+
 header {
     margin-bottom: 20px;
 }
 
-/* Todo Input */
-.todo-input, .todo-actions, .todo-list {
+/* Todo Input, Actions & List */
+.todo-input form,
+.todo-actions,
+.todo-list {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 20px;
 }
+
+
+/* Todo-input */
 .todo-input input[type="text"],
-.todo-input input[type="date"],
+.todo-input input[type="date"] {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    color: #dea355;
+    background-color: #09090b;
+    border: 1px solid #152648;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+.todo-input input[type="text"]:focus,
+.todo-input input[type="date"]:focus {
+    border-color: #152648;
+    outline: none; 
+    box-shadow: 0 0 5px #152648; 
+}
+
+
 .todo-input button {
     height: 40px;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 10px 20px;
+    background-color: #152648;
+    color: #adcbfd;
+    border: none;
     border-radius: 4px;
-    margin-right: 10px;
+    cursor: pointer;
 }
 
-/* Todo Actions */
-.todo-actions select {
-    height: 40px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-}
+
+/* Todo-actions */
 .todo-actions button {
+    background-color: #152648;
+    color: #adcbfd;
     height: 40px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 4px;
-    margin-right: 10px;
+    cursor: pointer;
 }
 
-/* Todo List */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color: #adcbfd; 
+}
+
+.dropdown-btn {
+    padding: 10px 14px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background-color: #152648;
+    border-radius: 6px;
+    min-width: 160px;
+    z-index: 100;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu li {
+    text-align: left;
+    padding: 10px 14px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.dropdown-menu li:hover {
+    border-radius: 6px;
+    background-color: #adcbfd;
+    color: #152648;
+}
+
+.dropdown.show .dropdown-menu {
+    display: block;
+}
+
+
+/* Todo List Table */
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #fff;
+    background-color: #09090b;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Header Kolom */
 thead {
-    background-color: #f7f7f7;
+    background-color: #171719;
 }
 
 th, td {
     padding: 12px 16px;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #152648;
 }
 
-/* Baris terakhir tanpa border bawah */
 tbody tr:last-child td {
     border-bottom: none;
 }
 
-/* Hover efek */
 tbody tr:hover {
-    background-color: #f0f0f0;
+    background-color: #171719;
 }
 
 /* Status Badge */
@@ -98,23 +166,24 @@ tbody tr:hover {
 }
 
 .status-pending {
-    color: red;
+    color: rgb(207, 6, 6);
     font-weight: bold;
 }
 
-/* Tombol Hapus / Aksi */
+/* Button Styles */
 .btn-edit {
     padding: 6px 12px;
-    background-color: #ffff00;
-    color: #000000;
+    background-color: #eec64d;
+    color: #000;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
+
 .btn-toggle {
     padding: 6px 12px;
-    background-color: #51ff00;
-    color: #000000;
+    background-color: #2bd4bd;
+    color: #000;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -122,20 +191,45 @@ tbody tr:hover {
 
 .btn-delete {
     padding: 6px 12px;
-    background-color: #ff4d4d;
-    color: #000000;
+    background-color: #fa6f84;
+    color: #000;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
- .btn-delete:hover {
-    background-color: #e60000;
+/* Notifikasi (Toast) */
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #dea355;
+    color: #09090b;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    font-weight: bold;
+    display: none;
+    z-index: 1000;
+    animation: slideDown 0.3s ease;
 }
 
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* Footer */
 footer {
     margin-top: 30px;
     text-align: center;
     padding: 20px;
-    color: #555;
+    color: #dea355;
 }
