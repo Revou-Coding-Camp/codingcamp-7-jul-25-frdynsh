@@ -233,3 +233,77 @@ footer {
     padding: 20px;
     color: #dea355;
 }
+
+
+/* Tablet dan layar kecil (≤ 768px) */
+@media (max-width: 768px) {
+    main {
+        width: auto;
+        max-width: 95%;
+        margin: 24px 16px;
+        padding: 12px;
+    }
+
+    .todo-input input[type="text"],
+    .todo-input input[type="date"] {
+        font-size: 14px;
+        padding: 8px;
+        margin-right: 8px;
+    }
+
+    .todo-input button,
+    .todo-actions button,
+    .dropdown-btn {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    .btn-edit,
+    .btn-toggle,
+    .btn-delete {
+        padding: 4px 10px;
+        font-size: 12px;
+    }
+}
+
+/* HP kecil (≤ 480px) */
+@media (max-width: 480px) {
+    main {
+        width: auto;
+        max-width: 98%;
+        margin: 16px 12px;
+    }
+
+    .todo-input input[type="text"],
+    .todo-input input[type="date"] {
+        font-size: 13px;
+        padding: 6px;
+        margin-right: 6px;
+    }
+
+    .todo-input button,
+    .todo-actions button,
+    .dropdown-btn {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    .btn-edit,
+    .btn-toggle,
+    .btn-delete {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+}
